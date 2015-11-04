@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WKClickView">
+
+        <attr name="normal_bg" format="reference"/>
+        <attr name="ripple_bg" format="reference"/>
+
+        <attr name="layout_style">
+            <!-- 矩形-->
+            <enum name="rectangle" value="0"/>
+            <!-- 椭圆或者椭圆-->
+            <enum name="oval" value="1"/>
+            <!-- 圆角-->
+            <enum name="round" value="2"/>
+            <!-- 半圆-->
+            <enum name="semicircle" value="3"/>
+        </attr>
+
+    </declare-styleable>
+</resources>

@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:text="Hello World!"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</RelativeLayout>
+    <com.wkzf.view.WKClickView
+        android:id="@+id/click_view_rectangle"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:background="@drawable/view_bg_rectangle"
+        app:layout_style="rectangle">
+    </com.wkzf.view.WKClickView>
+
+    <com.wkzf.view.WKClickView
+        android:id="@+id/click_view_round"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/view_bg_round"
+        app:layout_style="round">
+    </com.wkzf.view.WKClickView>
+
+    <com.wkzf.view.WKClickView
+        android:id="@+id/click_view_circle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/view_bg_oval"
+        app:layout_style="oval">
+    </com.wkzf.view.WKClickView>
+
+    <com.wkzf.view.WKClickView
+        android:id="@+id/click_view_oval"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/view_bg_oval"
+        app:layout_style="oval">
+    </com.wkzf.view.WKClickView>
+
+    <com.wkzf.view.WKClickView
+        android:id="@+id/click_view_semicircle"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/view_bg_semicircle"
+        app:layout_style="semicircle">
+    </com.wkzf.view.WKClickView>
+
+
+</LinearLayout>
