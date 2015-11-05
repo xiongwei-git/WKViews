@@ -21,9 +21,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    //compile project(':wkviewlib')
+    compile project(':wkviewlib')
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
     //compile 'com.wkzf.view:wkviewlib:1.0.0'
-    compile 'com.github.xiongwei-git:WKViews:v1.0'
+    //compile 'com.github.xiongwei-git:WKViews:v1.0'
 }

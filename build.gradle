@@ -19,7 +19,7 @@ allprojects {
 //        maven {
 //            url 'http://dl.bintray.com/xiongwei-git/maven'
 //        }
-        maven { url "https://jitpack.io" }
+        //maven { url "https://jitpack.io" }
     }
 }
 
