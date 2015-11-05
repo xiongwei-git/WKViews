@@ -1,1 +1,1 @@
-include ':app', ':wkviewlib'
+include ':app'//, ':wkviewlib'
