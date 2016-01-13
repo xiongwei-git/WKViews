@@ -11,52 +11,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
+    tools:context="com.android.wkzf.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <com.wkzf.view.WKClickView
-        android:id="@+id/click_view_rectangle"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:background="@drawable/view_bg_rectangle"
-        app:layout_style="rectangle">
-    </com.wkzf.view.WKClickView>
+    <Button
+        android:text="视频播放器"
+        android:onClick="onVideoPlayer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
 
-    <com.wkzf.view.WKClickView
-        android:id="@+id/click_view_round"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_round"
-        app:layout_style="round">
-    </com.wkzf.view.WKClickView>
+    <Button
+        android:text="WKClickView"
+        android:onClick="onClickView"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
 
-    <com.wkzf.view.WKClickView
-        android:id="@+id/click_view_circle"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_oval"
-        app:layout_style="oval">
-    </com.wkzf.view.WKClickView>
-
-    <com.wkzf.view.WKClickView
-        android:id="@+id/click_view_oval"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_oval"
-        app:layout_style="oval">
-    </com.wkzf.view.WKClickView>
-
-    <com.wkzf.view.WKClickView
-        android:id="@+id/click_view_semicircle"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_semicircle"
-        app:layout_style="semicircle">
-    </com.wkzf.view.WKClickView>
-
+    <Button
+        android:text="RecycleView"
+        android:onClick="onClickRecycleView"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
 
 </LinearLayout>

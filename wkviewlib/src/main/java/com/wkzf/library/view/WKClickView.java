@@ -1,22 +1,34 @@
-package com.wkzf.view;
+package com.wkzf.library.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import com.wkzf.library.R;
 
 /**
  * Created by Ted on 2015/11/2.
- * 自定义的点击效果视图，一般用来至于具有点击效果的布局上方
+ * 自定义的点击效果视图，一般用来套在点击效果控件的外层，
+ * 也可以自己设置背景颜色充当点击控件，比如替代Button和ImageButton
+ * 共支持四种内容样式 矩形（rectangle），圆角（round），圆形或椭圆（oval），两侧半圆形（semicircle）
  */
-public class WKClickView extends FrameLayout implements View.OnClickListener {
+public class WKClickView extends FrameLayout implements View.OnClickListener, View.OnLongClickListener {
     private int type = 0;
     private int normalClickBgId = -1;
     private int rippleClickBgId = -1;
 
+    private View clickView = null;
+
     private OnClickListener onClickListener;
+    private OnLongClickListener onLongClickListener;
+
 
     @Override
     public void onClick(View v) {
@@ -26,9 +38,30 @@ public class WKClickView extends FrameLayout implements View.OnClickListener {
     }
 
     @Override
+    public boolean onLongClick(View v) {
+        if (null != onLongClickListener) {
+            onLongClickListener.onLongClick(this);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public void setOnClickListener(OnClickListener l) {
         super.setOnClickListener(l);
         onClickListener = l;
+    }
+
+    @Override
+    public void setOnLongClickListener(OnLongClickListener onLongClickListener) {
+        this.onLongClickListener = onLongClickListener;
+    }
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+        if (null != clickView)
+            clickView.setEnabled(enabled);
     }
 
     public WKClickView(Context context) {
@@ -62,25 +95,24 @@ public class WKClickView extends FrameLayout implements View.OnClickListener {
         }
     }
 
-
     private void initViews() {
-
-    }
-
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
         addClickView();
     }
 
     private void addClickView() {
-        View clickView = new View(getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-                LayoutParams.WRAP_CONTENT);
-        clickView.setBackgroundResource(getClickViewResId());
-        clickView.setLayoutParams(layoutParams);
-        clickView.setOnClickListener(this);
-        addView(clickView);
+        if (null != clickView) return;
+        this.post(new Runnable() {
+            @Override
+            public void run() {
+                clickView = new View(getContext());
+                clickView.setOnClickListener(WKClickView.this);
+                clickView.setOnLongClickListener(WKClickView.this);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getWidth(), getHeight());
+                clickView.setLayoutParams(layoutParams);
+                clickView.setBackgroundResource(getClickViewResId());
+                WKClickView.this.addView(clickView);
+            }
+        });
     }
 
     private int getClickViewResId() {
@@ -95,6 +127,4 @@ public class WKClickView extends FrameLayout implements View.OnClickListener {
         else if (type == 3) return R.drawable.wk_click_view_semicircle_bg;
         else return R.drawable.wk_click_view_rectangle_bg;
     }
-
-
 }

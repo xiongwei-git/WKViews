@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WKViewLib</string>
+
+    <!--video-->
+    <string name="video_sd">标清</string>
+    <string name="video_hd">高清</string>
+    <string name="share_tv_layout_title">"%s"正在播放中</string>
 </resources>
