@@ -96,12 +96,12 @@ public class WKClickView extends FrameLayout implements View.OnClickListener, Vi
     }
 
     private void initViews() {
+        if(null != findViewWithTag("click"))return;
         makeClickView();
         addClickView();
     }
 
     private void addClickView() {
-        if(null != findViewWithTag("click"))return;
         this.post(new Runnable() {
             @Override
             public void run() {

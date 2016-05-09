@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.0'
+        classpath 'com.android.tools.build:gradle:2.1.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3' // Add this line
@@ -15,10 +15,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-//        maven {
-//            url 'http://dl.bintray.com/xiongwei-git/maven'
-//        }
-        //maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" }
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 

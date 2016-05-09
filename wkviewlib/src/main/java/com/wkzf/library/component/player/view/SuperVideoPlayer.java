@@ -651,13 +651,9 @@ public class SuperVideoPlayer extends RelativeLayout {
      */
     private void exitFromTvResult(Message message) {
         boolean isSuccess = message.arg1 == 1;
-        mDLNARootLayout.setVisibility(GONE);
-        initDLNAInfo();
-        playVideoAtLastPos();
         if (!isSuccess) {
             Toast.makeText(mContext, "电视播放退出失败，请手动退出", Toast.LENGTH_SHORT).show();
         }
-        mProgressBarView.setVisibility(GONE);
     }
 
     /**
@@ -691,7 +687,9 @@ public class SuperVideoPlayer extends RelativeLayout {
      * 继续在本地播放
      */
     private synchronized void goOnPlayAtLocal() {
-        showProgressView(true);
+        mDLNARootLayout.setVisibility(GONE);
+        initDLNAInfo();
+        playVideoAtLastPos();
         new Thread() {
             @Override
             public void run() {
