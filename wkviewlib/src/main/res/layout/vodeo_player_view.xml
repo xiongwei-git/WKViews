@@ -17,139 +17,155 @@
   -->
 
 <RelativeLayout
-    android:id="@+id/video_inner_container"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/video_inner_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    >
 
-    <com.wkzf.library.component.player.view.WKVideoView
-        android:id="@+id/video_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:visibility="gone"/>
+  <com.wkzf.library.component.player.view.WKVideoView
+      android:id="@+id/video_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_centerInParent="true"
+      android:visibility="gone"
+      />
 
-    <RelativeLayout
-        android:id="@+id/rel_dlna_root_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        android:visibility="gone">
+  <FrameLayout
+      android:id="@+id/progressbar"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@android:color/black"
+      android:visibility="gone"
+      >
 
-        <TextView
-            android:id="@+id/txt_dlna_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="xx正在播放中"
-            android:textColor="#ffffff"
-            android:textSize="15sp"/>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/video_player_progressbar_style"
+        />
+  </FrameLayout>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/txt_dlna_title"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/video_player_share_tv"/>
-
-        <TextView
-            android:id="@+id/txt_dlna_exit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_dlna_title"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/btn_exit_dlna_btn_bg"
-            android:gravity="center"
-            android:paddingBottom="8dp"
-            android:paddingLeft="18dp"
-            android:paddingRight="18dp"
-            android:paddingTop="8dp"
-            android:text="退出电视播放"
-            android:textColor="#fe9513"
-            android:textSize="15sp"/>
-    </RelativeLayout>
-
+  <com.wkzf.library.component.player.view.GestureControlPanel
+      android:id="@+id/video_player_control_panel"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
 
     <FrameLayout
-        android:id="@+id/progressbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        android:visibility="gone">
+        android:id="@+id/video_close_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="14dp"
+        >
 
-        <ProgressBar
-            style="@style/video_player_progressbar_style"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:src="@drawable/video_player_close_btn"
+          />
     </FrameLayout>
 
-    <com.wkzf.library.component.player.view.GestureControlPanel
-        android:id="@+id/video_player_control_panel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/video_share_tv_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="14dp"
+        android:visibility="visible"
+        >
 
-        <FrameLayout
-            android:id="@+id/video_close_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="14dp">
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:src="@drawable/video_player_share_tv"
+          />
+    </FrameLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/video_player_close_btn"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/video_share_tv_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="14dp"
-            android:visibility="visible">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/video_player_share_tv"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/video_player_user_control_guide_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/user_guide_bg_color"
-            android:visibility="gone">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/video_player_user_control_guide"/>
-
-        </FrameLayout>
-
-    </com.wkzf.library.component.player.view.GestureControlPanel>
-
-    <com.wkzf.library.component.player.view.PlayerController
-        android:id="@+id/controller"
+    <FrameLayout
+        android:id="@+id/video_player_user_control_guide_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:clickable="false"
-        android:visibility="gone"/>
+        android:background="@color/user_guide_bg_color"
+        android:visibility="gone"
+        >
+
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:background="@drawable/video_player_user_control_guide"
+          />
+
+    </FrameLayout>
+
+  </com.wkzf.library.component.player.view.GestureControlPanel>
+
+  <RelativeLayout
+      android:id="@+id/rel_dlna_root_layout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@android:color/black"
+      android:visibility="gone"
+      >
+
+    <TextView
+        android:id="@+id/txt_dlna_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="xx正在播放中"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txt_dlna_title"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/video_player_share_tv"
+        />
+
+    <TextView
+        android:id="@+id/txt_dlna_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_dlna_title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_exit_dlna_btn_bg"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:paddingTop="8dp"
+        android:text="退出电视播放"
+        android:textColor="#fe9513"
+        android:textSize="15sp"
+        />
+  </RelativeLayout>
+
+
+  <com.wkzf.library.component.player.view.PlayerController
+      android:id="@+id/controller"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentBottom="true"
+      android:clickable="false"
+      android:visibility="gone"
+      />
 
 
 </RelativeLayout>
