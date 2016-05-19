@@ -8,6 +8,7 @@ import com.wkzf.library.view.WKClickView;
 
 /**
  * Created by Ted on 2015/11/17.
+ * test
  */
 public class WKClickViewActivity extends AppCompatActivity{
     @Override
