@@ -111,19 +111,24 @@ public class WKClickView extends FrameLayout implements View.OnClickListener, Vi
     private void initViews() {
         if(null != findViewWithTag("click"))return;
         makeClickView();
+        // addClickView();
+    }
+        @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
         addClickView();
     }
 
     private void addClickView() {
-        this.post(new Runnable() {
-            @Override
-            public void run() {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getWidth(), getHeight());
+        // this.post(new Runnable() {
+            // @Override
+            // public void run() {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getMeasuredWidth(), getMeasuredHeight());
                 clickView.setLayoutParams(layoutParams);
                 clickView.setBackgroundResource(getClickViewResId());
                 WKClickView.this.addView(clickView);
-            }
-        });
+            // }
+        // });
     }
 
     private void makeClickView(){
