@@ -8,81 +8,97 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:paddingTop="@dimen/activity_vertical_margin"
+    >
 
-    <com.wkzf.library.view.WKClickView
-        android:id="@+id/click_view_rectangle"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
-        android:background="@drawable/view_bg_rectangle"
-        app:layout_style="rectangle">
+  <com.wkzf.library.view.WKClickView
+      android:id="@+id/click_view_rectangle"
+      android:layout_width="180dp"
+      android:layout_height="30dp"
+      android:background="@drawable/view_bg_rectangle"
+      app:layout_style="rectangle"
+      >
 
-    </com.wkzf.library.view.WKClickView>
+  </com.wkzf.library.view.WKClickView>
 
-    <com.wkzf.library.view.WKClickView
-        android:id="@+id/click_view_round"
-        android:layout_width="180dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_round"
-        app:layout_style="round">
-    </com.wkzf.library.view.WKClickView>
+  <com.wkzf.library.view.WKClickView
+      android:id="@+id/click_view_round"
+      android:layout_width="180dp"
+      android:layout_height="30dp"
+      android:layout_marginTop="10dp"
+      android:background="@drawable/view_bg_round"
+      app:layout_style="round"
+      >
+  </com.wkzf.library.view.WKClickView>
 
-    <com.wkzf.library.view.WKClickView
-        android:id="@+id/click_view_circle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_oval"
-        app:layout_style="oval">
-    </com.wkzf.library.view.WKClickView>
+  <com.wkzf.library.view.WKClickView
+      android:id="@+id/click_view_circle"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="10dp"
+      android:background="@drawable/view_bg_oval"
+      app:layout_style="oval"
+      >
+  </com.wkzf.library.view.WKClickView>
 
-    <com.wkzf.library.view.WKClickView
-        android:id="@+id/click_view_oval"
-        android:layout_width="170dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_oval"
-        app:layout_style="oval">
-    </com.wkzf.library.view.WKClickView>
+  <com.wkzf.library.view.WKClickView
+      android:id="@+id/click_view_oval"
+      android:layout_width="170dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="10dp"
+      android:background="@drawable/view_bg_oval"
+      app:layout_style="oval"
+      >
+  </com.wkzf.library.view.WKClickView>
 
-    <com.wkzf.library.view.WKClickView
-        android:id="@+id/click_view_semicircle"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/view_bg_semicircle"
-        app:layout_style="semicircle">
-    </com.wkzf.library.view.WKClickView>
+  <com.wkzf.library.view.WKClickView
+      android:id="@+id/click_view_semicircle"
+      android:layout_width="100dp"
+      android:layout_height="30dp"
+      android:layout_marginTop="10dp"
+      android:background="@drawable/view_bg_semicircle"
+      app:layout_style="semicircle"
+      >
+  </com.wkzf.library.view.WKClickView>
 
-    <com.wkzf.library.view.WKClickView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+  <com.wkzf.library.view.WKClickView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      >
 
-        <TextView
-            android:text="熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟"
-            android:layout_width="250dp"
-            android:padding="3dp"
-            android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:text="熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟"
+        />
 
-    </com.wkzf.library.view.WKClickView>
+  </com.wkzf.library.view.WKClickView>
 
 
-    <com.wkzf.library.view.WKClickView
+  <com.wkzf.library.view.WKClickView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      app:layout_style="rectangle"
+      >
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_style="rectangle">
+        android:padding="10dp"
+        android:src="@drawable/arraw_to_right"
+        />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:src="@drawable/arraw_to_right" />
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:text="熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟"
+        />
 
-    </com.wkzf.library.view.WKClickView>
-
+  </com.wkzf.library.view.WKClickView>
 
 
 </LinearLayout>

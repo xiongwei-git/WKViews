@@ -70,6 +70,7 @@ public class WKClickView extends FrameLayout
     initViews();
   }
 
+
   private void initFromAttributes(Context context, AttributeSet attrs) {
     if (attrs != null) {
       TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WKClickView);
