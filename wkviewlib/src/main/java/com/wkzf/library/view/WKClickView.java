@@ -81,6 +81,19 @@ public class WKClickView extends FrameLayout implements View.OnClickListener, Vi
         initViews();
     }
 
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        int makeMeasureSpecWidth = MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY);
+        int makeMeasureSpecHeight = MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec
+                .EXACTLY);
+        if (clickView != null) {
+            clickView.measure(makeMeasureSpecWidth, makeMeasureSpecHeight);
+        }
+    }
+
     private void initFromAttributes(Context context, AttributeSet attrs) {
         if (attrs != null) {
             TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WKClickView);
