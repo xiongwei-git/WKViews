@@ -2,17 +2,11 @@ package com.wkzf.library.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.os.Build;
-import android.system.Os;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-
 import com.wkzf.library.R;
 
 /**
@@ -47,7 +41,7 @@ public class WKClickView extends FrameLayout
   }
 
   @Override public void setOnClickListener(OnClickListener l) {
-    super.setOnClickListener(l);
+    //super.setOnClickListener(l);
     onClickListener = l;
   }
 
@@ -67,8 +61,8 @@ public class WKClickView extends FrameLayout
 
   public WKClickView(Context context, AttributeSet attrs) {
     super(context, attrs);
-    initViews();
     initFromAttributes(context, attrs);
+    initViews();
   }
 
   public WKClickView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -107,6 +101,7 @@ public class WKClickView extends FrameLayout
           clickView.setLayoutParams(layoutParams);
           clickView.setBackgroundResource(getClickViewResId());
           clickView.bringToFront();
+          if(layoutParams.height==0 || layoutParams.width == 0)return;
           if (Build.VERSION.SDK_INT > 15) {
             WKClickView.this.getViewTreeObserver()
                 .removeOnGlobalLayoutListener(mOnGlobalLayoutListener);
