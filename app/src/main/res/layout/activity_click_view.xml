@@ -55,30 +55,31 @@
         app:layout_style="semicircle">
     </com.wkzf.library.view.WKClickView>
 
-    <FrameLayout
+    <com.wkzf.library.view.WKClickView
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="熊伟"
-            android:layout_width="match_parent"
+            android:text="熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟"
+            android:layout_width="250dp"
+            android:padding="3dp"
             android:layout_height="wrap_content"/>
-    </FrameLayout>
+
+    </com.wkzf.library.view.WKClickView>
 
 
     <com.wkzf.library.view.WKClickView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/accent_material_dark"
         app:layout_style="rectangle">
 
-        <TextView
-            android:text="熊伟"
+        <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/arraw_to_right" />
 
     </com.wkzf.library.view.WKClickView>
 
