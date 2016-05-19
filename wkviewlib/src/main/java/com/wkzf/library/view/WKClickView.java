@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import com.wkzf.library.R;
 
@@ -83,6 +82,7 @@ public class WKClickView extends FrameLayout
       normalClickBgId = -1;
       rippleClickBgId = -1;
     }
+  }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -96,19 +96,6 @@ public class WKClickView extends FrameLayout
             clickView.measure(makeMeasureSpecWidth, makeMeasureSpecHeight);
         }
     }
-
-    private void initFromAttributes(Context context, AttributeSet attrs) {
-        if (attrs != null) {
-            TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WKClickView);
-            type = array.getInt(R.styleable.WKClickView_layout_style, 0);
-            normalClickBgId = array.getResourceId(R.styleable.WKClickView_normal_bg, -1);
-            rippleClickBgId = array.getResourceId(R.styleable.WKClickView_ripple_bg, -1);
-            array.recycle();
-        } else {
-            type = 0;
-            normalClickBgId = -1;
-            rippleClickBgId = -1;
-  }
 
     private void initViews() {
         if(null != findViewWithTag("click"))return;
