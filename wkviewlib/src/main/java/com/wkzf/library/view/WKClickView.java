@@ -83,59 +83,73 @@ public class WKClickView extends FrameLayout
       normalClickBgId = -1;
       rippleClickBgId = -1;
     }
-  }
 
-  private void initViews() {
-    if (null != findViewWithTag("click")) return;
-    this.getViewTreeObserver().addOnGlobalLayoutListener(mOnGlobalLayoutListener);
-  }
-
-  private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener =
-      new ViewTreeObserver.OnGlobalLayoutListener() {
-        @Override public void onGlobalLayout() {
-          if (null == findViewWithTag("click")) {
-            makeClickView();
-          }
-          FrameLayout.LayoutParams layoutParams =
-              new FrameLayout.LayoutParams(getWidth(), getHeight());
-          clickView.setLayoutParams(layoutParams);
-          clickView.setBackgroundResource(getClickViewResId());
-          clickView.bringToFront();
-          if(layoutParams.height==0 || layoutParams.width == 0)return;
-          if (Build.VERSION.SDK_INT > 15) {
-            WKClickView.this.getViewTreeObserver()
-                .removeOnGlobalLayoutListener(mOnGlobalLayoutListener);
-          } else {
-            WKClickView.this.getViewTreeObserver()
-                .removeGlobalOnLayoutListener(mOnGlobalLayoutListener);
-          }
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        int makeMeasureSpecWidth = MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY);
+        int makeMeasureSpecHeight = MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec
+                .EXACTLY);
+        if (clickView != null) {
+            clickView.measure(makeMeasureSpecWidth, makeMeasureSpecHeight);
         }
-      };
+    }
 
-  private void makeClickView() {
-    clickView = new View(getContext());
-    clickView.setOnClickListener(WKClickView.this);
-    clickView.setOnLongClickListener(WKClickView.this);
-    clickView.setTag("click");
-    WKClickView.this.addView(clickView);
+    private void initFromAttributes(Context context, AttributeSet attrs) {
+        if (attrs != null) {
+            TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WKClickView);
+            type = array.getInt(R.styleable.WKClickView_layout_style, 0);
+            normalClickBgId = array.getResourceId(R.styleable.WKClickView_normal_bg, -1);
+            rippleClickBgId = array.getResourceId(R.styleable.WKClickView_ripple_bg, -1);
+            array.recycle();
+        } else {
+            type = 0;
+            normalClickBgId = -1;
+            rippleClickBgId = -1;
   }
 
-  private int getClickViewResId() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      if (rippleClickBgId > 0) return rippleClickBgId;
-    } else {
-      if (normalClickBgId > 0) return normalClickBgId;
+    private void initViews() {
+        if(null != findViewWithTag("click"))return;
+        makeClickView();
+        // addClickView();
     }
-    if (type == 0) {
-      return R.drawable.wk_click_view_rectangle_bg;
-    } else if (type == 1) {
-      return R.drawable.wk_click_view_oval_bg;
-    } else if (type == 2) {
-      return R.drawable.wk_click_view_round_bg;
-    } else if (type == 3) {
-      return R.drawable.wk_click_view_semicircle_bg;
-    } else {
-      return R.drawable.wk_click_view_rectangle_bg;
+        @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        addClickView();
     }
+
+    private void addClickView() {
+        // this.post(new Runnable() {
+            // @Override
+            // public void run() {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getMeasuredWidth(), getMeasuredHeight());
+                clickView.setLayoutParams(layoutParams);
+                clickView.setBackgroundResource(getClickViewResId());
+                WKClickView.this.addView(clickView);
+            // }
+        // });
+    }
+
+    private void makeClickView(){
+        clickView = new View(getContext());
+        clickView.setOnClickListener(WKClickView.this);
+        clickView.setOnLongClickListener(WKClickView.this);
+        clickView.setTag("click");
+    }
+
+    private int getClickViewResId() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (rippleClickBgId > 0) return rippleClickBgId;
+        } else {
+            if (normalClickBgId > 0) return normalClickBgId;
+        }
+        if (type == 0) return R.drawable.wk_click_view_rectangle_bg;
+        else if (type == 1) return R.drawable.wk_click_view_oval_bg;
+        else if (type == 2) return R.drawable.wk_click_view_round_bg;
+        else if (type == 3) return R.drawable.wk_click_view_semicircle_bg;
+        else return R.drawable.wk_click_view_rectangle_bg;
   }
 }
