@@ -80,23 +80,23 @@
   <com.wkzf.library.view.WKClickView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="10dp"
       app:layout_style="rectangle"
       >
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:src="@drawable/arraw_to_right"
-        />
+        android:background="#345"
+        >
 
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:padding="3dp"
-        android:text="熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟"
-        />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟熊伟伟熊伟熊伟熊伟熊伟"
+          />
+    </RelativeLayout>
+
 
   </com.wkzf.library.view.WKClickView>
 

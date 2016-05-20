@@ -70,7 +70,6 @@ public class WKClickView extends FrameLayout
     initViews();
   }
 
-
   private void initFromAttributes(Context context, AttributeSet attrs) {
     if (attrs != null) {
       TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WKClickView);
@@ -85,59 +84,65 @@ public class WKClickView extends FrameLayout
     }
   }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int measuredWidth = getMeasuredWidth();
-        int measuredHeight = getMeasuredHeight();
-        int makeMeasureSpecWidth = MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY);
-        int makeMeasureSpecHeight = MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec
-                .EXACTLY);
-        if (clickView != null) {
-            clickView.measure(makeMeasureSpecWidth, makeMeasureSpecHeight);
-        }
+  @Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    int measuredWidth = getMeasuredWidth();
+    int measuredHeight = getMeasuredHeight();
+    int makeMeasureSpecWidth = MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY);
+    int makeMeasureSpecHeight = MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY);
+    if (clickView != null) {
+      clickView.measure(makeMeasureSpecWidth, makeMeasureSpecHeight);
     }
+  }
 
-    private void initViews() {
-        if(null != findViewWithTag("click"))return;
-        makeClickView();
-        // addClickView();
-    }
-        @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        addClickView();
-    }
+  private void initViews() {
+    if (null != findViewWithTag("click")) return;
+    makeClickView();
+    // addClickView();
+  }
 
-    private void addClickView() {
-        // this.post(new Runnable() {
-            // @Override
-            // public void run() {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getMeasuredWidth(), getMeasuredHeight());
-                clickView.setLayoutParams(layoutParams);
-                clickView.setBackgroundResource(getClickViewResId());
-                WKClickView.this.addView(clickView);
-            // }
-        // });
-    }
+  @Override protected void onFinishInflate() {
+    super.onFinishInflate();
+    addClickView();
+  }
 
-    private void makeClickView(){
-        clickView = new View(getContext());
-        clickView.setOnClickListener(WKClickView.this);
-        clickView.setOnLongClickListener(WKClickView.this);
-        clickView.setTag("click");
-    }
+  private void addClickView() {
+    // this.post(new Runnable() {
+    // @Override
+    // public void run() {
+    FrameLayout.LayoutParams layoutParams =
+        new FrameLayout.LayoutParams(getMeasuredWidth(), getMeasuredHeight());
+    clickView.setLayoutParams(layoutParams);
+    clickView.setBackgroundResource(getClickViewResId());
+    WKClickView.this.addView(clickView);
+    // }
+    // });
+  }
 
-    private int getClickViewResId() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (rippleClickBgId > 0) return rippleClickBgId;
-        } else {
-            if (normalClickBgId > 0) return normalClickBgId;
-        }
-        if (type == 0) return R.drawable.wk_click_view_rectangle_bg;
-        else if (type == 1) return R.drawable.wk_click_view_oval_bg;
-        else if (type == 2) return R.drawable.wk_click_view_round_bg;
-        else if (type == 3) return R.drawable.wk_click_view_semicircle_bg;
-        else return R.drawable.wk_click_view_rectangle_bg;
+  private void makeClickView() {
+    clickView = new View(getContext());
+    clickView.setOnClickListener(WKClickView.this);
+    clickView.setOnLongClickListener(WKClickView.this);
+    clickView.setTag("click");
+    clickView.setEnabled(isEnabled());//跟随父布局状态
+  }
+
+  private int getClickViewResId() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      if (rippleClickBgId > 0) return rippleClickBgId;
+    } else {
+      if (normalClickBgId > 0) return normalClickBgId;
+    }
+    if (type == 0) {
+      return R.drawable.wk_click_view_rectangle_bg;
+    } else if (type == 1) {
+      return R.drawable.wk_click_view_oval_bg;
+    } else if (type == 2) {
+      return R.drawable.wk_click_view_round_bg;
+    } else if (type == 3) {
+      return R.drawable.wk_click_view_semicircle_bg;
+    } else {
+      return R.drawable.wk_click_view_rectangle_bg;
+    }
   }
 }
