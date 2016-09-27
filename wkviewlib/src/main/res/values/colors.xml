@@ -11,7 +11,8 @@
     <color name="video_player_controller_progress_load_color">#6b6666</color>
     <color name="item_select_color">#00b2ff</color>
     <color name="item_normal_color">#ffffff</color>
+    <color name="white_a80">#b3ffffff</color>
     <color name="user_guide_bg_color">#92000000</color>
     <!-- 分割线-->
-    <color name="divider">#e4e4e4</color>
+    <color name="divider">#b3e4e4e4</color>
 </resources>

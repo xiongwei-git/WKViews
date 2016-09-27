@@ -170,7 +170,7 @@ public class EasySwitcher extends LinearLayout {
     private View getDividerView() {
         View view = new View(mContext);
         view.setBackgroundColor(mContext.getResources().getColor(R.color.divider));
-        view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3));
+        view.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1));
         return view;
     }
 
