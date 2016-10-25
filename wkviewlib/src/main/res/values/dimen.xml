@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="normalCorners">3dp</dimen>
+    <dimen name="normalCorners">8px</dimen>
     <dimen name="maxCorners">21dp</dimen>
 
     <!-- MEDIA CONTROLLER -->
