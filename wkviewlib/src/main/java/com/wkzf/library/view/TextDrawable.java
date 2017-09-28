@@ -34,6 +34,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 /**
  * Created by Ted on 2015/11/5.
  * 支持圆角图片的TextView
+ * https://github.com/amulyakhare/TextDrawable
  */
 public class TextDrawable extends ShapeDrawable {
 

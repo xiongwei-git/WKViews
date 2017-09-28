@@ -105,9 +105,6 @@ public class PlayerTestActivity extends AppCompatActivity implements View.OnClic
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         if (null == mSuperVideoPlayer) return;
-        /***
-         * 根据屏幕方向重新设置播放器的大小
-         */
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -133,7 +130,7 @@ public class PlayerTestActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
-        mSuperVideoPlayer = (SuperVideoPlayer) findViewById(R.id.video_player_item_1);
+        mSuperVideoPlayer = findViewById(R.id.video_player_item_1);
         mPlayBtnView = findViewById(R.id.play_btn);
         mPlayBtnView.setOnClickListener(this);
         mSuperVideoPlayer.setVideoPlayCallback(mVideoPlayCallback);
@@ -151,7 +148,6 @@ public class PlayerTestActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void startDLNAService() {
-        // Clear the device container.
         DLNAContainer.getInstance().clear();
         Intent intent = new Intent(getApplicationContext(), DLNAService.class);
         startService(intent);
