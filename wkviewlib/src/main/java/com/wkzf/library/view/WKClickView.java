@@ -21,6 +21,7 @@ public class WKClickView extends FrameLayout
     private int type = 0;
     private int normalClickBgId = -1;
     private int rippleClickBgId = -1;
+    private boolean ripple = false;
 
     private View clickView = null;
 
@@ -45,13 +46,21 @@ public class WKClickView extends FrameLayout
 
     @Override
     public void setOnClickListener(OnClickListener l) {
-        //super.setOnClickListener(l);
-        onClickListener = l;
+        if (ripple) {
+            onClickListener = l;
+        } else {
+            super.setOnClickListener(l);
+        }
     }
 
     @Override
     public void setOnLongClickListener(OnLongClickListener onLongClickListener) {
-        this.onLongClickListener = onLongClickListener;
+        if (ripple) {
+            this.onLongClickListener = onLongClickListener;
+        } else {
+            super.setOnLongClickListener(onLongClickListener);
+        }
+
     }
 
     @Override
@@ -80,6 +89,7 @@ public class WKClickView extends FrameLayout
     private void initFromAttributes(Context context, AttributeSet attrs) {
         if (attrs != null) {
             TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WKClickView);
+            ripple = array.getBoolean(R.styleable.WKClickView_ripple, false);
             type = array.getInt(R.styleable.WKClickView_layout_style, 0);
             normalClickBgId = array.getResourceId(R.styleable.WKClickView_normal_bg, -1);
             rippleClickBgId = array.getResourceId(R.styleable.WKClickView_ripple_bg, -1);
@@ -88,12 +98,14 @@ public class WKClickView extends FrameLayout
             type = 0;
             normalClickBgId = -1;
             rippleClickBgId = -1;
+            ripple = false;
         }
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        if (!ripple) return;
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         int makeMeasureSpecWidth = MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY);
@@ -104,6 +116,7 @@ public class WKClickView extends FrameLayout
     }
 
     private void initViews() {
+        if (!ripple) return;
         if (null != findViewWithTag("click")) return;
         makeClickView();
     }
@@ -111,6 +124,7 @@ public class WKClickView extends FrameLayout
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        if (!ripple) return;
         addClickView();
     }
 

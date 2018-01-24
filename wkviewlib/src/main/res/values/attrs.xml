@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="WKClickView">
 
+        <attr name="ripple" format="boolean"/>
         <attr name="normal_bg" format="reference"/>
         <attr name="ripple_bg" format="reference"/>
 

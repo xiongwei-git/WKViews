@@ -17,6 +17,7 @@
       android:layout_height="30dp"
       android:background="@drawable/view_bg_rectangle"
       app:layout_style="rectangle"
+      app:ripple="true"
       >
 
   </com.wkzf.library.view.WKClickView>
