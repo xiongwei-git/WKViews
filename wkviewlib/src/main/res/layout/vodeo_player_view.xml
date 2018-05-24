@@ -22,7 +22,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill"
-    android:background="@android:color/white"
+    android:background="@android:color/transparent"
     >
 
   <com.wkzf.library.component.player.view.WKVideoView
